@@ -1,7 +1,7 @@
 % main.m
 clear; clc; close all;
 
-I = imread("/Users/mingsenhu/Documents/Work/Code/UWO/DigitalImageProcessing/Assignment1/image/test_binary.png");
+I = imread("/Users/mingsenhu/Documents/Work/Code/MATLAB/Test/Test1/image/mountain.jpg");
 
 if ~(islogical(I) && ismatrix(I))
     % If RGB → grayscale (IPT):
@@ -27,8 +27,8 @@ boxes = find_bounding_boxes_34(I);
 % --- Display with IPT ---
 figure; imshow(I, []); title('Bounding boxes'); hold on;
 for i = 1:size(boxes,1)
-    rmin = boxes(i,1); cmin = boxes(i,2);
-    rmax = boxes(i,3); cmax = boxes(i,4);
+    cmin = boxes(i,1); rmin = boxes(i,2);
+    cmax = boxes(i,3) + cmin; rmax = boxes(i,4) + rmin;
     rectangle('Position', [cmin-0.5, rmin-0.5, cmax-cmin+1, rmax-rmin+1], ...
               'EdgeColor','y','LineWidth',2);
 end
