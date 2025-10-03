@@ -1,0 +1,13 @@
+Question 4 & 5
+
+Question 4
+I hand-drew some patterns on my iPad, but they came out with a white background and black lines.
+That's the opposite of what we need for the assignment (which is a black background with a white object), so I had to process them in Matlab.
+I first converted the image from a truecolor to a grayscale image, and then converted that to a binary image. If you look in Matlab, the ColorType still shows as 'grayscale', but the BitDepth is 1, so it is, in fact, binary.
+Then, I reduced the resolution to decrease computation time and speed up the program, and then used imwrite() to save the final result.
+The advantage of using the hand-drawn images is that it's easy to distinguish the object from the background. I tried using natural landscape photos, but the background had way too much interference.
+
+Question 5
+I used a stack to store data, because in dfs, we need to process with stack or recursion, 
+Depth-First Search (DFS) requires a stack to store the nodes that still need to be visited. This is because the stack's Last-In, First-Out (LIFO) property perfectly matches DFS's backtracking strategy.
+When DFS dives deeper into the graph, it pushes nodes onto the stack. When it hits a dead end or a node it's already visited, it pops the top node off the stack to backtrack to a previous node and continue exploring another branch, until the target is found or all reachable nodes have been explored.
