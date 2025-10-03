@@ -68,7 +68,7 @@ function boxes = find_bounding_boxes_34(im)
                 end
 
                 % Save bbox for this component
-                boxes(end+1, :) = [minRow, minCol, maxRow, maxCol];
+                boxes(end+1, :) = [minCol, minRow, maxCol - minCol, maxRow - minRow];
             end
         end
     end
