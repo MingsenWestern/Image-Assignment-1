@@ -1,24 +1,31 @@
 % main.m
 clear; clc; close all;
 
-I = imread("/Users/mingsenhu/Documents/Work/Code/MATLAB/Test/Test1/image/mountain.jpg");
+I = imread("/Users/mingsenhu/Documents/Work/Code/UWO/DigitalImageProcessing/Assignment1/image/test_binary.png");
 
-% If RGB → grayscale (IPT):
-if ndims(I) == 3
-    Igray = rgb2gray(I);
-else
-    Igray = I;
+if ~(islogical(I) && ismatrix(I))
+    % If RGB → grayscale (IPT):
+    if ndims(I) == 3
+        Igray = rgb2gray(I);
+    else
+        Igray = I;
+    end
+    BW = imbinarize(Igray);
+    I = BW;
 end
 
+
+
+
 % Make a logical binary image for your function:
-BW = imbinarize(Igray);
+% 
 % (If you need binarization from grayscale, use: BW = imbinarize(Igray);)
 
 % Call your DFS function (expects logical):
-boxes = find_bounding_boxes_34(BW);
+boxes = find_bounding_boxes_34(I);
 
 % --- Display with IPT ---
-figure; imshow(BW, []); title('Bounding boxes'); hold on;
+figure; imshow(I, []); title('Bounding boxes'); hold on;
 for i = 1:size(boxes,1)
     rmin = boxes(i,1); cmin = boxes(i,2);
     rmax = boxes(i,3); cmax = boxes(i,4);
